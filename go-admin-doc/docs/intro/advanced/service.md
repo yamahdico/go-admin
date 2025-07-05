@@ -1,10 +1,14 @@
 ---
-nav: 开发
+
+```yaml
+nav: Development
 group:
-  title: 高级
+  title: Advanced
   order: 2
 title: service
 toc: content
+```
+
 ---
 
 ## import
@@ -24,7 +28,7 @@ import (
 )
 ```
 
-## 定义业务对象 Struct
+## Define Business Object Struct
 
 ```go
 type SysPost struct {
@@ -34,12 +38,12 @@ type SysPost struct {
 
 ## GetList
 
-GetList 针对 分页列表业务进行业务逻辑处理，使用到了 dto 和 models 相关的函数。
+`GetList` handles business logic for paginated list queries, using related dto and models functions.
 
-示例函数：
+Example function:
 
 ```go
-// GetPage 获取SysPost列表
+// GetPage fetches a paginated list of SysPost
 func (e *SysPost) GetPage(c *dto.SysPostPageReq, list *[]models.SysPost, count *int64) error {
 	var err error
 	var data models.SysPost
@@ -61,12 +65,12 @@ func (e *SysPost) GetPage(c *dto.SysPostPageReq, list *[]models.SysPost, count *
 
 ## Get
 
-Get 针对 通过 id 获取单个元素业务进行业务逻辑处理，使用到了 dto 和 models 相关的函数。
+`Get` handles business logic for fetching a single record by ID, using related dto and models functions.
 
-示例函数：
+Example function:
 
 ```go
-// Get 获取SysPost对象
+// Get fetches a SysPost object by ID
 func (e *SysPost) Get(d *dto.SysPostGetReq, model *models.SysPost) error {
 	var err error
 	var data models.SysPost
@@ -75,7 +79,7 @@ func (e *SysPost) Get(d *dto.SysPostGetReq, model *models.SysPost) error {
 		First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或无权查看")
+		err = errors.New("Object not found or no permission to view")
 		e.Log.Errorf("db error:%s", err)
 		return err
 	}
@@ -89,12 +93,12 @@ func (e *SysPost) Get(d *dto.SysPostGetReq, model *models.SysPost) error {
 
 ## Post
 
-Post 针对 单个元素创建业务进行业务逻辑处理，使用到了 dto 和 models 相关的函数。
+`Post` handles business logic for creating a single record, using related dto and models functions.
 
-示例函数：
+Example function:
 
 ```go
-// Insert 创建SysPost对象
+// Insert creates a new SysPost record
 func (e *SysPost) Insert(c *dto.SysPostInsertReq) error {
 	var err error
 	var data models.SysPost
@@ -110,12 +114,12 @@ func (e *SysPost) Insert(c *dto.SysPostInsertReq) error {
 
 ## Put
 
-Put 针对 单个元素修改业务进行业务逻辑处理，使用到了 dto 和 models 相关的函数。
+`Put` handles business logic for updating a single record, using related dto and models functions.
 
-示例函数：
+Example function:
 
 ```go
-// Update 修改SysPost对象
+// Update modifies an existing SysPost record
 func (e *SysPost) Update(c *dto.SysPostUpdateReq) error {
 	var err error
 	var model = models.SysPost{}
@@ -128,8 +132,7 @@ func (e *SysPost) Update(c *dto.SysPostUpdateReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("无权更新该数据")
-
+		return errors.New("No permission to update this data")
 	}
 	return nil
 }
@@ -137,12 +140,12 @@ func (e *SysPost) Update(c *dto.SysPostUpdateReq) error {
 
 ## Delete
 
-Delete 针对 单个元素删除业务进行业务逻辑处理，使用到了 dto 和 models 相关的函数。
+`Delete` handles business logic for deleting a single record, using related dto and models functions.
 
-示例函数：
+Example function:
 
 ```go
-// Remove 删除SysPost
+// Remove deletes a SysPost record
 func (e *SysPost) Remove(d *dto.SysPostDeleteReq) error {
 	var err error
 	var data models.SysPost
@@ -154,16 +157,9 @@ func (e *SysPost) Remove(d *dto.SysPostDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("无权删除该数据")
+		err = errors.New("No permission to delete this data")
 		return err
 	}
 	return nil
 }
 ```
-
-:::warning
-从哪里获得帮助：
-
-如果你在阅读本教程的过程中有任何疑问，可以前往[提交建议](https://github.com/go-admin-team/go-admin/issues/new)。
-
-:::

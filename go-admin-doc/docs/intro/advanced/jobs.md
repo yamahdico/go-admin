@@ -1,40 +1,43 @@
+
 ---
+
+```yaml
 group:
-  title: 高级使用
+  title: Advanced Usage
   order: 10
-title: 定时任务
+title: Scheduled Tasks
 order: 300
 toc: content
----
+```
 
-## 定时任务
+## Scheduled Tasks
 
-系统目前是支持两种定时类型，一种是函数类型，一种是接口类型，来支持多样的业务；
+The system currently supports two types of scheduled tasks: function type and interface type, to support diverse business needs.
 
-### HttpJob 接口类型
+### HttpJob Interface Type
 
-接口类型是比较简单的，在系统中配置好调用的接口地址、调用周期即可；
+The interface type is quite simple; you just configure the interface URL and the invocation cycle in the system.
 
-### ExecJob 函数类型
+### ExecJob Function Type
 
-函数类型是需要使用代码来完成的业务，这个时候我们需要使用函数类型；
+The function type requires implementing the business logic in code. In this case, you need to use the function type.
 
-系统中给出了一个示例：
+The system provides an example:
 
-`jobs`目录中可以看到`examples.go`的文件，这里边是给出的一个示例代码；
+In the `jobs` directory, you can find a file called `examples.go`, which contains a sample implementation.
 
-下面我们针对示例代码做一下介绍：
+Let’s explain the example code:
 
-第一步：需要创建一个结构体，这个结构体需要实现`JobCore`接口；如：ExamplesOne，里边实现了`Exec`方法；
+**Step 1:** Create a struct that implements the `JobCore` interface; for example, `ExamplesOne` implements the `Exec` method:
+
 ```go
 type ExamplesOne struct {
 }
 
 func (t ExamplesOne) Exec(arg interface{}) error {
 	str := "JobCore ExamplesOne exec success"
-	// TODO: 这里需要注意 Examples 传入参数是 string 所以 arg.(string)；请根据对应的类型进行转化；
+	// TODO: Note that Examples passes a string parameter, so arg.(string) is used here; convert according to your parameter type.
 	switch arg.(type) {
-
 	case string:
 		if arg.(string) != "" {
 			logger.Info(str, arg.(string))
@@ -43,12 +46,11 @@ func (t ExamplesOne) Exec(arg interface{}) error {
 		}
 		break
 	}
-
 	return nil
 }
 ```
 
-第二步：需要在InitJob中注册这个结构体；如：ExamplesOne；需要将结构体的名称作为key，结构体作为value；这样重新启动项目，就可以在系统中进行配置并使用了；
+**Step 2:** Register this struct in `InitJob`; for example, register `ExamplesOne` by using the struct name as the key and the struct itself as the value. After restarting the project, you can configure and use it in the system:
 
 ```go
 func InitJob() {
@@ -58,3 +60,5 @@ func InitJob() {
 	}
 }
 ```
+
+---

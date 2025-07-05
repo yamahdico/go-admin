@@ -1,17 +1,11 @@
----
-nav: 开发
-group:
-  title: 高级
-  order: 2
-title: models
-toc: content
+
 ---
 
-models 主要是和 db 做交互使用的。
+models mainly interact with the database.
 
-## package 和 import
+## package and import
 
-首先，需要是`package`名称和 `import` package 引用关系
+First, set the `package` name and import the required packages.
 
 ```go
 package models
@@ -25,12 +19,12 @@ import (
 
 ```go
 type SysPost struct {
-	PostId   int    `gorm:"primaryKey;autoIncrement" json:"postId"` //岗位编号
-	PostName string `gorm:"size:128;" json:"postName"`              //岗位名称
-	PostCode string `gorm:"size:128;" json:"postCode"`              //岗位代码
-	Sort     int    `gorm:"size:4;" json:"sort"`                    //岗位排序
-	Status   int    `gorm:"size:4;" json:"status"`                  //状态
-	Remark   string `gorm:"size:255;" json:"remark"`                //描述
+	PostId   int    `gorm:"primaryKey;autoIncrement" json:"postId"` // Post ID
+	PostName string `gorm:"size:128;" json:"postName"`              // Post name
+	PostCode string `gorm:"size:128;" json:"postCode"`              // Post code
+	Sort     int    `gorm:"size:4;" json:"sort"`                    // Sort order
+	Status   int    `gorm:"size:4;" json:"status"`                  // Status
+	Remark   string `gorm:"size:255;" json:"remark"`                // Description
 	models.ControlBy
 	models.ModelTime
 
@@ -51,10 +45,6 @@ func (e *SysPost) GetId() interface{} {
 	return e.PostId
 }
 ```
+Where to get help:
 
-:::warning
-从哪里获得帮助：
-
-如果你在阅读本教程的过程中有任何疑问，可以前往[提交建议](https://github.com/go-admin-team/go-admin/issues/new)。
-
-:::
+If you have any questions while reading this tutorial, you can visit Submit Suggestions. https://github.com/go-admin-team/go-admin/issues/new

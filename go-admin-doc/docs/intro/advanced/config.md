@@ -1,47 +1,41 @@
----
-nav: 开发
-group:
-  title: 高级
-  order: 2
-title: 配置文件
-toc: content
+
 ---
 
-## 创建不同环境的配置文件
+## Creating Configuration Files for Different Environments
 
-go-admin 的配置文件默认放在`config`文件夹下的 `settings.yml` 。
+The default configuration file of go-admin is located in the `config` folder as `settings.yml`.
 
-用户可以根据不同的环境创建不同的配置文件：
+Users can create different configuration files for different environments:
 
 ```sh
-# 创建开发环境的配置文件
+# Create configuration file for development environment
 settings.dev.yml
 
-# 创建生产环境的配置文件
+# Create configuration file for production environment
 settings.prod.yml
 
-# 创建测试环境的配置文件
+# Create configuration file for testing environment
 settings.test.yml
 ```
 
-## 添加自定义配置项
+## Adding Custom Configuration Items
 
-在 `settings` 节点下边添加 `extend` ，并在下边创建自己需要的配置项即可。
+Under the `settings` node, add `extend`, and then create the custom configuration items you need under it.
 
 ```yml
 settings:
-  extend: # 扩展项使用说明
+  extend: # Description for extension items
     demo:
       name: data
 ```
 
-然后，打开文件`config/extend.go`
+Then, open the file `config/extend.go`
 
-补充以下代码：
+Add the following code:
 
 ```go
 type Extend struct {
-	Demo Demo   // 这里配置对应配置文件的结构即可
+	Demo Demo   // Configure the structure corresponding to the config file here
 }
 
 type Demo struct {
@@ -49,11 +43,11 @@ type Demo struct {
 }
 ```
 
-即可。
+That’s it.
 
-## 读取自定义配置项
+## Reading Custom Configuration Items
 
-在需要使用的文件中添加引用
+Add the import in the file where you want to use the config:
 
 ```go
 import (
@@ -61,15 +55,11 @@ import (
 )
 ```
 
-在使用的地方直接使用以下代码即可。
+Then use the following code directly in your usage place:
 
 ```go
     fmt.Println("extConfig.ExtConfig.Demo.Name", extConfig.ExtConfig.Demo.Name)
 ```
 
-:::warning
-从哪里获得帮助：
+---
 
-如果你在阅读本教程的过程中有任何疑问，可以前往[提交建议](https://github.com/go-admin-team/go-admin/issues/new)。
-
-:::

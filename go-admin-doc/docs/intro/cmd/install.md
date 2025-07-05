@@ -1,29 +1,19 @@
----
-nav:
-  title: 指令
-  order: 3
-title: install
-order: 10
-toc: content
----
 
-:::warning
-注意：本指令仅适用于`go-admin-pro`项目
-:::
+---
 
 <br>
 
-## 项目初始化
+## Project Initialization
 
-`go-admin-pro` 为了更好的用户体验减少用户的配置，提供了`install`指令，用于初始化项目，生成配置文件，生成数据库表。
+To improve user experience and reduce user configuration, `go-admin-pro` provides the `install` command to initialize the project, generate configuration files, and create database tables.
 
 ```sh
 $ go run main.go install
 ```
 
-这样可以启动项目的可视化引导安装页面，按照提示进行操作即可。
+This will launch a visual guided installation page for the project. Follow the prompts to complete the setup.
 
-页面示例：
+Example pages:
 
 ![](https://doc-image.zhangwj.com/img/install01.png)
 ![](https://doc-image.zhangwj.com/img/install02.png)
@@ -31,4 +21,8 @@ $ go run main.go install
 ![](https://doc-image.zhangwj.com/img/install04.png)
 ![](https://doc-image.zhangwj.com/img/install05.png)
 
-到这里就完成配置了。
+With that, the configuration is complete.
+
+---
+
+If you want me to help with anything else, just say!

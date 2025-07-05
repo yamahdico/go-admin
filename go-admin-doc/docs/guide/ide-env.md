@@ -1,75 +1,57 @@
----
-title: IDE 配置
-order: 100
-toc: menu
+Here's the English translation of your IDE configuration document:
+
 ---
 
-目前`Go`的`IDE`有比较流行有`VSCode`和 JetBrains 公司的`Goland`。由于 JetBrains 也是 go-admin 脚手架的赞助商，因此我们优先推荐使用`Goland`来作为开发 IDE，下载及注册请参考网上教程（[百度](https://www.baidu.com) 或 [Google](https://www.goole.com)）。
+# IDE Configuration
 
-[JetBrains 的官网](https://www.jetbrains.com)
+Currently, popular IDEs for Go development include **VSCode** and JetBrains' **Goland**. Since JetBrains is also a sponsor of the go-admin scaffolding, we recommend using **Goland** as your primary development IDE. For download and registration, please refer to tutorials online (such as [Baidu](https://www.baidu.com) or [Google](https://www.google.com)).
 
-## goland
+[JetBrains Official Website](https://www.jetbrains.com)
 
-### 启动 IDE
+## Goland
 
-首先，打开`goland`。
-<img src="https://doc-image.zhangwj.com/img/goland-step1.png" width="400px" />
+### Starting the IDE
 
-### 创建项目
+First, open **Goland**. <img src="https://doc-image.zhangwj.com/img/goland-step1.png" width="400px" />
 
-创建一个`helloworld`项目。
-<img src="https://doc-image.zhangwj.com/img/goland-step3.png" width="400px" />
+### Creating a Project
 
-指定项目创建的位置。
-<img src="https://doc-image.zhangwj.com/img/goland-step2.png" width="400px" />
+Create a project named `helloworld`. <img src="https://doc-image.zhangwj.com/img/goland-step3.png" width="400px" />
 
-创建`main.go`文件。鼠标`右键`选中`新建`，然后`Go 文件`。
-<img src="https://doc-image.zhangwj.com/img/goland-step4.png" width="400px" />
+Specify the location to create the project. <img src="https://doc-image.zhangwj.com/img/goland-step2.png" width="400px" />
 
-选择`空文件`。
-<img src="https://doc-image.zhangwj.com/img/goland-step5.png" width="400px" />
+Create a `main.go` file. Right-click, choose **New**, then **Go File**. <img src="https://doc-image.zhangwj.com/img/goland-step4.png" width="400px" />
 
-修改`package`名称为`main`。
-<img src="https://doc-image.zhangwj.com/img/goland-step6.png" width="400px" />
+Choose **Empty File**. <img src="https://doc-image.zhangwj.com/img/goland-step5.png" width="400px" />
 
-写一段简单的代码，输出一个`Hello World！`
-<img src="https://doc-image.zhangwj.com/img/goland-step7.png" width="400px" />
+Change the `package` name to `main`. <img src="https://doc-image.zhangwj.com/img/goland-step6.png" width="400px" />
 
-点击`运行`
-<img src="https://doc-image.zhangwj.com/img/goland-step8.png" width="400px" />
+Write a simple program to print `Hello World!` <img src="https://doc-image.zhangwj.com/img/goland-step7.png" width="400px" />
 
-选择`go build main.go`
-<img src="https://doc-image.zhangwj.com/img/goland-step9.png" width="400px" />
+Click **Run**. <img src="https://doc-image.zhangwj.com/img/goland-step8.png" width="400px" />
 
-goland 会在底部运行窗口中，将运行结果打印。
-<img src="https://doc-image.zhangwj.com/img/goland-step10.png" width="400px" />
+Select **go build main.go**. <img src="https://doc-image.zhangwj.com/img/goland-step9.png" width="400px" />
 
-恭喜你，第一个`Go`语言的程序就成功 run 起来了！
+Goland will show the output in the bottom run window. <img src="https://doc-image.zhangwj.com/img/goland-step10.png" width="400px" />
+
+Congratulations! Your first Go program has successfully run!
 
 ## VS Code
 
-### 运行 VS Code
+### Running VS Code
 
-先创建一个工作目录，然后打开目录；
-<img src="https://doc-image.zhangwj.com/img/vscode-step1.png" width="400px" />
+Create a working directory and open it. <img src="https://doc-image.zhangwj.com/img/vscode-step1.png" width="400px" />
 
-新建`main.go`文件。
-<img src="https://doc-image.zhangwj.com/img/vscode-step2.png" width="400px" />
+Create a new file `main.go`. <img src="https://doc-image.zhangwj.com/img/vscode-step2.png" width="400px" />
 
-把 hello wordl 代码写入文件中。
-<img src="https://doc-image.zhangwj.com/img/vscode-step3.png" width="400px" />
+Write your hello world code in the file. <img src="https://doc-image.zhangwj.com/img/vscode-step3.png" width="400px" />
 
-选择`运行`，`终端`激活 vscode 的终端窗口。
-<img src="https://doc-image.zhangwj.com/img/vscode-step4.png" width="400px" />
+Select **Run**, and the terminal panel will activate in VS Code. <img src="https://doc-image.zhangwj.com/img/vscode-step4.png" width="400px" />
 
-在终端里边键入`go build main.go`，执行成功会编译一个可运行二进制包，直接使用`./main`运行即可；如果是 windows 略有差异，windows 下编译的包需要使用`main.exe`执行。
-<img src="https://doc-image.zhangwj.com/img/vscode-step5.png" width="400px" />
+In the terminal, run `go build main.go`. If successful, it compiles a runnable binary. Run it with `./main`; on Windows, run `main.exe`. <img src="https://doc-image.zhangwj.com/img/vscode-step5.png" width="400px" />
 
-成功！
+Success!
 
-:::warning
-从哪里获得帮助：
+---
 
-如果你在阅读本教程的过程中有任何疑问，可以前往[提交建议](https://github.com/go-admin-team/go-admin/issues/new)。
-
-:::
+If you want me to translate or adapt it into a more concise or tutorial-friendly style, just let me know!

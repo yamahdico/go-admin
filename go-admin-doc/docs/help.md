@@ -1,7 +1,7 @@
 ---
 nav:
-  title: 帮助
+  title: help
   order: 6
 ---
 
-整理中...
+Under arrangement...

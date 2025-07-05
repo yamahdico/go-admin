@@ -1,35 +1,32 @@
----
-title: Go Modules
-order: 80
-toc: content
+
 ---
 
 # Go Modules
 
-从 1.11 开始，Go 已经包含了对版本模块的支持，正如这里提出的那样。最初的原型 vgo 于 2018 年 2 月公布。 2018 年 7 月，版本化模块登陆 Go 主存储库。
+Starting from version 1.11, Go includes support for versioned modules as proposed here. The initial prototype, vgo, was announced in February 2018. In July 2018, versioned modules were merged into the main Go repository.
 
-从 Go 1.14 开始，模块支持被认为可以用于生产，并鼓励所有用户从其他依赖管理系统迁移到模块。
+From Go 1.14 onward, module support is considered production-ready, and all users are encouraged to migrate from other dependency management systems to modules.
 
-Go 1.16 针对 go Modules 变更
+### Changes in Go 1.16 regarding Go Modules
 
-1. 模块模式 ( GO111MODULE=on) 是所有情况下的默认值
-1. 命令不再修改 go.mod/go.sum 默认情况下 ( -mod=readonly)
-1. go install pkg@version 是全局安装包/可执行文件的推荐方法
-1. retract 可在 go.mod
+1. Module mode (`GO111MODULE=on`) is the default in all cases.
+2. Commands no longer modify `go.mod` or `go.sum` by default (`-mod=readonly`).
+3. `go install pkg@version` is the recommended method for globally installing packages/executables.
+4. The `retract` directive can be used in `go.mod`.
 
-## 关于 go.mod
+## About go.mod
 
-`go.mod`是 Go 项目的依赖描述文件，有三个信息：
+The `go.mod` file describes the dependencies of a Go project and contains three key pieces of information:
 
-1. 当前项目名(module)是什么。每个项目都应该设置一个名称，当前项目中的包(package)可以使用该名称进行相互调用。
-2. 项目 go 语言版本号
-3. 当前项目依赖的第三方包名称。项目运行时会自动分析项目中的代码依赖，生成 go.sum 依赖分析结果，随后 go 编译器会去下载这些第三方包，然后再编译运行。
+1. The name of the current project (module). Each project should have a module name, which packages within the project use to reference each other.
+2. The Go language version the project uses.
+3. The names of third-party packages the project depends on. During build, the Go compiler automatically analyzes the code dependencies, generates `go.sum` with dependency hashes, and downloads these third-party packages before compiling.
 
-## 初始化 go.mod
+## Initializing go.mod
 
-> 首先需要配置一下[环境变量](/guide/env.html)
+> First, ensure your [environment variables are configured](/guide/env.html).
 
-执行一下命令，初始化 go.mod 文件
+Run the following command to initialize a `go.mod` file:
 
 ```sh
 $ go mod init HelloWorld
@@ -40,15 +37,14 @@ go: to add module requirements and sums:
 
 <img src="https://doc-image.zhangwj.com/img/gomod-step1.png" width="400px" />
 
-go.mod 文件，内容如下：
+The content of the generated `go.mod` file looks like this:
 
 <img src="https://doc-image.zhangwj.com/img/gomod-step2.png" width="400px" />
 
-其中，`HelloWorld`为当前项目的名称，可以随意设置。
+Here, `HelloWorld` is the module name of your project and can be set arbitrarily.
 
-就这样简单便完成了项目的 module 初始化。
+That's it! You have successfully initialized your project's module.
 
-:::warning
-从哪里获得帮助：
-如果你在阅读本教程的过程中有任何疑问，可以前往[提交建议](https://github.com/go-admin-team/go-admin/issues/new)。
-:::
+---
+
+If you want, I can help translate more or provide explanations!

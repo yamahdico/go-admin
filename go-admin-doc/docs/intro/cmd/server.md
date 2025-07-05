@@ -1,70 +1,70 @@
----
-title: server
-order: 50
-toc: content
-nav:
-  title: 指令
-  order: 3
+
 ---
 
-## 视频教程
+# Server
 
-[【go-admin-pro】如何优雅添加 api（&适用于 go-admin）](https://www.bilibili.com/video/BV1pN4y157wp?spm_id_from=333.999.0.0)
+## Video Tutorial
 
-## 服务启动
+[【go-admin-pro】How to elegantly add APIs (& applicable to go-admin)](https://www.bilibili.com/video/BV1pN4y157wp?spm_id_from=333.999.0.0)
 
-`go-admin` 针对 api 项目的启动提供`server`指令，在程序启动时使用；
+## Starting the Service
 
-首先需要将在项目根目录下执行`go build` 将程序编译：
+`go-admin` provides the `server` command to start the API project; it is used when launching the program.
+
+First, you need to compile the program by running the following command in the project root directory:
 
 ```sh
 go build
 ```
 
-执行`go-admin server`指令，项目就可以启动了；
+Then run the command `go-admin server` to start the project.
 
-## 配置文件
+## Configuration File
 
-但有一个问题是项目的配置文件如何加载？
+A common question is how to load the project's configuration file.
 
-`go-admin server`默认是加载 config/settings.yml 文件；
+By default, `go-admin server` loads the `config/settings.yml` file.
 
-当然作者也考虑到大家不同的应用场景，开放了配置文件的配置接口，提供`-c`的参数，方便大家修改或者指定自己需要的配置文件；
+However, the author considered different scenarios, so they provided an option to specify the config file via the `-c` parameter, allowing you to modify or specify the config file you need.
 
-例如：
+For example:
 
 ```sh
-$ go-admin server -c config/swtting.xxxx.yml # 注意config/swtting.xxxx.yml可以根据本地的环境进行修改，修成自己的文件路径
+$ go-admin server -c config/setting.xxxx.yml
+# Note: config/setting.xxxx.yml can be changed to your local environment config file path.
 ```
 
-还需提醒一点，也是大家在这里常见的问题，因为我们上述的指令都是直接使用的`go-admin`，这里大家需要注意，因为在打包的时候如果使用的是`go build`，打包出来就是 go-admin 的一个二进制可执行文件，大家根据自己的系统和打包出来具体的文件名称进行调整上述指令；
+**Reminder:** Since the above commands use the binary named `go-admin` by default, if you compile the project with `go build`, the binary might have a different name depending on your system.
 
-例如：
-
-本地打出来的是`sss-admin.exe`
-
-执行命令就需要这样需要改，具体以本地环境为准
+For example, if your binary is named `sss-admin.exe`, you should use:
 
 ```sh
 $ sss-admin.exe server
 ```
 
-## 自动 api
+Adjust the command according to your local environment and binary name.
 
-`go-admin`为了大家更方便的添加 api 数据，还提供了一个`-a`参数：
+## Automatic API Registration
+
+To make it easier to add APIs, `go-admin` provides the `-a` parameter:
 
 ```sh
-# 系统在启动时自动检查路由中的api是否都记录在sys_api表中，如果缺少系统则会自动补充
-# -a 默认值 false 默认可以不传
+# When starting, the system automatically checks if all APIs in the router are recorded in the sys_api table.
+# Missing APIs will be automatically added.
+# The default value of -a is false, so it can be omitted.
 $ go-admin server -a true
 ```
 
-## 提醒
+## Reminder
 
-上述讲的是通过编译后的二进制可执行文件启动，其实开发过程中还可以通过：`go run main.go` 直接启动项目。
+The above describes starting the project via the compiled binary.
 
-例如：
+During development, you can also start the project directly using:
 
 ```sh
 $ go run main.go server
 ```
+
+---
+
+Let me know if you want a more concise summary or help with usage examples!

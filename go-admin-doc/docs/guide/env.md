@@ -1,66 +1,55 @@
----
-title: 基础配置
-order: 40
-toc: content
+
 ---
 
-# 环境变量
+# Environment Variables
 
-:::warning
-本章我们主要说明如何配置 Go Modules 开启；如果已经配置完成，请直接忽略本章内容。
+## How to configure on Windows
 
-:::
-
-## windows 中如何配置
-
-右键`我的电脑`，选择`属性`;
+Right-click **My Computer**, select **Properties**;
 
 <img src="https://doc-image.zhangwj.com/img/wodediannaoshuxing.png" width="400px" />
 
-点击`高级系统设置`；
+Click **Advanced system settings**;
 
 <img src="https://doc-image.zhangwj.com/img/xitongshuxing.png" width="400px" />
 
-点击`环境变量`；
+Click **Environment Variables**;
 
 <img src="https://doc-image.zhangwj.com/img/huanjingbianliang1.png" width="400px" />
 
-点击`新建`；
-填写 变量名 `GO111MODULE`, 变量值 `on`；
+Click **New**;
+Fill in the variable name as `GO111MODULE`, variable value as `on`;
 
 <img src="https://doc-image.zhangwj.com/img/huanjingbianliang2.png" width="400px" />
 
-点击`确定`;
-点击`新建`；
-填写 变量名 `GOPROXY`, 变量值 `https://goproxy.cn`；
+Click **OK**;
+Click **New** again;
+Fill in the variable name as `GOPROXY`, variable value as `https://goproxy.cn`;
 
 <img src="https://doc-image.zhangwj.com/img/huanjingbianliang3.png" width="400px" />
 
-点击`确定`;
+Click **OK**;
 
 <img src="https://doc-image.zhangwj.com/img/huanjingbianliang4.png" width="400px" />
 
-点击`确定`;
+Click **OK**;
 
-重新打开 `CMD`，立即生效
+Reopen `CMD` to take effect immediately.
 
-## macOS 中如何配置
-
-```bash
-$ go env -w GOPROXY=https://goproxy.cn,direct
-$ go env -w GO111MODULE=on
-```
-
-## linux 中如何配置
+## How to configure on macOS
 
 ```bash
 $ go env -w GOPROXY=https://goproxy.cn,direct
 $ go env -w GO111MODULE=on
 ```
 
-:::warning
-从哪里获得帮助：
+## How to configure on Linux
 
-如果你在阅读本教程的过程中有任何疑问，可以前往[提交建议](https://github.com/go-admin-team/go-admin/issues/new)。
+```bash
+$ go env -w GOPROXY=https://goproxy.cn,direct
+$ go env -w GO111MODULE=on
+```
 
-:::
+---
+
+If you want, I can help with more translations or explanations!

@@ -1,12 +1,12 @@
----
-nav:
-  title: 指令
-  order: 3
-title: config
-order: 30
-toc: content
+
 ---
 
-## 配置信息
+# config
 
-更新中
+## Configuration Information
+
+Updating...
+
+---
+
+If you want, I can help you draft or expand the configuration section content—just let me know!
